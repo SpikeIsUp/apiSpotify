@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "b2dc1564-b295-4a4e-ae7e-1154d699a3b6",
+		"name": "My Collection",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50122695",
+		"_collection_link": "https://spikeisback-7287216.postman.co/workspace/spike's-Workspace~4a83b27f-4e12-4f3d-8932-3e3f780e2049/collection/50122695-b2dc1564-b295-4a4e-ae7e-1154d699a3b6?action=share&source=collection_link&creator=50122695"
+	},
+	"item": [
+		{
+			"name": "Post data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "92608f7a47374894ab079de8c05dbef0",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "b53d8dc7eac949589a3ab78713e81209",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.spotify.com/api/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Q1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDUm69y492d7JxaIWKDdtTh05KLvwXGPemCAwcSqR7jum_JuBBZmUrZigfmVULSqo79d42QObS777luy-kUXetBo_6t85AQI2lqrduKQrPLS57rN6gWUSfz1BCK93aD5jztTtVe7Sw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.spotify.com/v1/artists/2UwqpfQtNuhBwviIC0f2ie?si=6f676799034e4dc3",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"artists",
+						"2UwqpfQtNuhBwviIC0f2ie"
+					],
+					"query": [
+						{
+							"key": "si",
+							"value": "6f676799034e4dc3"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Q2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/artists/2UwqpfQtNuhBwviIC0f2ie/albums",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"artists",
+						"2UwqpfQtNuhBwviIC0f2ie",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "api.spotify.com/v1/albums/4beTtJKeg3ITJsiVuxkiV0/tracks?offset=0&limit=5",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"albums",
+						"4beTtJKeg3ITJsiVuxkiV0",
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q4",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/tracks/6nkFbmDY84a9rejFSbIMdj",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"tracks",
+						"6nkFbmDY84a9rejFSbIMdj"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/artists/0LnhY2fzptb0QEs5Q5gM7S/top-tracks",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"artists",
+						"0LnhY2fzptb0QEs5Q5gM7S",
+						"top-tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/tracks/67Pf31pl0PfjBfUmvYNDCL",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"tracks",
+						"67Pf31pl0PfjBfUmvYNDCL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q7",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/shows/6y1PloEyNsCNJH9vHias4T",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"shows",
+						"6y1PloEyNsCNJH9vHias4T"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q8",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/shows/6y1PloEyNsCNJH9vHias4T/episodes?limit=3",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"shows",
+						"6y1PloEyNsCNJH9vHias4T",
+						"episodes"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q9",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQDdl80s4AADRbBpXKS6p_6QzSWMB8Ikx100_897zij6QXdRw2hRxBWUJwlk-_Vde0gjOeFP7JIAZEGDp92vPJlGtdKappMvqX3zhaqZYJ9BWJ7X3TnUWqtgN_wdFROoNeB9Mry0T2o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/shows/6y1PloEyNsCNJH9vHias4T/episodes?offset=1&limit=1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"shows",
+						"6y1PloEyNsCNJH9vHias4T",
+						"episodes"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
