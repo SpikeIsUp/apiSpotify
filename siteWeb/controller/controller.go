@@ -37,3 +37,17 @@ func Home(w http.ResponseWriter, r *http.Request) {
         log.Println("Erreur RenderTemplate:", err)
     }
 }
+
+func Damso(w http.ResponseWriter, r *http.Request) {
+    log.Println("➡️ GET /damso")
+    if err := RenderTemplate(w, "damso.html"); err != nil {
+        log.Println("Erreur RenderTemplate:", err)
+    }
+}
+
+func Laylow(w http.ResponseWriter, r *http.Request) {
+    log.Println("➡️ GET /laylow")
+    if err := RenderTemplate(w, "laylow.html"); err != nil {
+        log.Println("Erreur RenderTemplate:", err)
+    }
+}
